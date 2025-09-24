@@ -1,142 +1,206 @@
-# FIR Dashboard
+# Jalna FIR Dashboard
 
-A modern, interactive dashboard for visualizing First Information Report (FIR) data from Jalna District, Maharashtra. Built with Next.js, TypeScript, Tailwind CSS, and Shadcn UI components.
+A comprehensive web-based dashboard for managing and analyzing First Information Reports (FIRs) from Jalna district. Built with modern web technologies to provide law enforcement agencies with powerful tools for case management, analytics, and strategic decision-making.
 
-## Features
+## 🚀 Features
 
-- **Interactive Map**: View incident locations with custom markers
-- **Heatmap Visualization**: See crime density patterns across the district
-- **Real-time Filtering**: Filter by police station, incident type, and date range
-- **Statistics Dashboard**: Key metrics and insights
-- **Responsive Design**: Works on desktop and mobile devices
-- **Modern UI**: Clean, professional interface using Shadcn UI components
+### 📊 **Interactive Dashboard**
+- Real-time map visualization with heatmap overlay
+- Key performance indicators and statistics
+- Responsive design optimized for all devices
 
-## Technology Stack
+### 🔍 **Advanced Search & Discovery**
+- Comprehensive case search functionality
+- Detailed case information with people involved
+- Vehicle tracking and legal sections
+- Narrative summaries and incident descriptions
 
-- **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn UI
-- **Maps**: Leaflet with React Leaflet
-- **Heatmap**: Leaflet.heat
-- **Data**: JSON-based FIR records with coordinates
+### 📈 **Strategic Analytics**
+- Temporal intelligence with 24-hour and weekly patterns
+- Case complexity metrics and demographic analysis
+- Visual charts and graphs for data insights
+- AI-powered insights for decision-making
 
-## Getting Started
+### 🎨 **Modern UI/UX**
+- Built with shadcn/ui components
+- Tailwind CSS for responsive styling
+- Clean, professional interface
+- Excellent user experience design
+
+## 🛠️ Technology Stack
+
+- **Framework**: Next.js 14 with TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Charts**: Recharts for data visualization
+- **Maps**: Leaflet with React integration
+- **Data**: JSON-based FIR database
+- **Deployment**: GitHub Pages ready
+
+## 📁 Project Structure
+
+```
+fir-dashboard/
+├── src/
+│   ├── app/
+│   │   ├── analytics/          # Strategic analytics page
+│   │   ├── search/             # Search and case details
+│   │   └── page.tsx            # Main dashboard
+│   ├── components/
+│   │   ├── ui/                 # shadcn/ui components
+│   │   ├── MapComponent.tsx    # Interactive map
+│   │   ├── Sidebar.tsx         # Navigation sidebar
+│   │   └── StatsCards.tsx      # Statistics display
+│   ├── lib/
+│   │   ├── data.ts             # Data loading utilities
+│   │   └── utils.ts            # Helper functions
+│   └── types/
+│       └── fir.ts              # TypeScript interfaces
+├── public/
+│   └── data/                   # FIR database files
+└── components.json             # shadcn/ui configuration
+```
+
+## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js 18+ 
 - npm or yarn
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd fir-dashboard
+   git clone https://github.com/gupta1123/JalnaFIR.git
+   cd JalnaFIR
 ```
 
-2. Install dependencies:
+2. **Install dependencies**
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. **Run the development server**
 ```bash
-npm run dev
+   npm start
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
+
+## 📊 Data Structure
+
+The dashboard works with FIR data in the following format:
+
+```typescript
+interface FIRRecord {
+  firDetails: {
+    firNumber: string;
+    policeStation: string;
+    firTimestamp: string;
+  };
+  incidentDetails: {
+    startDate: string;
+    startTime: string;
+    dayOfWeek: string;
+    placeOfOccurrence: {
+      address: string;
+      distanceFromPS_km: number;
+      coordinates?: [number, number];
+    };
+  };
+  personsInvolved: PersonInvolved[];
+  vehiclesInvolved: VehicleInvolved[];
+  narrativeSummary: {
+    summary_en: string;
+    keywords: string[];
+  };
+  sectionsApplied: SectionApplied[];
+}
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## 🎯 Key Features Explained
 
-## Data Structure
+### **Interactive Map**
+- Displays all FIR cases with location markers
+- Heatmap overlay shows incident density
+- Click markers for quick case details
+- Responsive design for mobile and desktop
 
-The dashboard uses FIR data stored in `public/data/fir_database_en_with_coordinates.json`. Each record contains:
+### **Search System**
+- Search by FIR number, location, names, or vehicle numbers
+- Detailed case view with comprehensive information
+- People categorization (Accused, Victims, Complainants, Witnesses)
+- Vehicle involvement tracking
 
-- **FIR Details**: Number, police station, district, timestamp
-- **Incident Details**: Date, time, location with coordinates
-- **Legal Information**: Applied sections and acts
-- **People Involved**: Complainants, accused, witnesses, deceased
-- **Vehicles**: Registration details and roles
-- **Narrative**: Summary and keywords
-- **Administrative**: Officer details and source references
+### **Analytics Dashboard**
+- **Temporal Intelligence**: 24-hour and weekly crime patterns
+- **Case Complexity**: People per case, unknown suspects, multi-vehicle incidents
+- **Demographics**: Victim age group analysis
+- **Visual Charts**: Area charts, bar charts, and pie charts
 
-## Map Features
+## 🚀 Deployment
 
-### Individual Markers
-- Color-coded markers based on incident type:
-  - 🟠 Orange: Accidents/collisions
-  - 🔵 Blue: Theft/robbery
-  - 🔴 Red: Violence/assaults
-- Detailed popups with incident information
-- Click to view full details
+### GitHub Pages
+The project is configured for easy deployment to GitHub Pages:
 
-### Heatmap Layer
-- Density visualization of incidents
-- Color gradient from blue (low) to red (high)
-- Adjustable radius and blur settings
-- Toggle between marker and heatmap views
+1. Push code to the `main` branch
+2. Enable GitHub Pages in repository settings
+3. Select source as "Deploy from a branch"
+4. Choose `main` branch and `/` folder
 
-## Filtering Options
+### Vercel (Recommended)
+For optimal performance, deploy to Vercel:
 
-- **Police Station**: Filter by specific police stations
-- **Incident Type**: Filter by keywords (accident, theft, etc.)
-- **Date Range**: Filter by incident dates (coming soon)
-- **Clear Filters**: Reset all filters
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect Next.js configuration
+3. Deploy with zero configuration
 
-## Statistics
+## 📈 Performance Features
 
-The dashboard displays key metrics:
-- Total incidents in the database
-- Number of active police stations
-- Incidents in the current month
-- Most common incident type
-- Average distance from police stations
+- **Server-Side Rendering**: Fast initial page loads
+- **Image Optimization**: Optimized images and assets
+- **Code Splitting**: Automatic code splitting for better performance
+- **Responsive Design**: Mobile-first approach
 
-## Development
+## 🔧 Development
 
-### Project Structure
+### Available Scripts
 
-```
-src/
-├── app/                 # Next.js app router
-├── components/          # React components
-│   ├── ui/             # Shadcn UI components
-│   ├── MapComponent.tsx # Main map component
-│   └── StatsCards.tsx   # Statistics display
-├── lib/                # Utility functions
-│   ├── data.ts         # Data loading and processing
-│   └── utils.ts        # General utilities
-└── types/              # TypeScript type definitions
-    └── fir.ts          # FIR data interfaces
-```
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm run dev` - Start development server with hot reload
 
-### Adding New Features
+### Code Style
+- TypeScript for type safety
+- ESLint for code quality
+- Prettier for code formatting
+- Tailwind CSS for styling
 
-1. **New Map Layers**: Extend `MapComponent.tsx`
-2. **Additional Filters**: Update the filter logic in `page.tsx`
-3. **New Statistics**: Modify `calculateDashboardStats()` in `data.ts`
-4. **Custom Markers**: Update the `getMarkerIcon()` function
-
-## Deployment
-
-The application can be deployed to any platform that supports Next.js:
-
-- **Vercel**: `npm run build && vercel --prod`
-- **Netlify**: `npm run build && netlify deploy --prod --dir=out`
-- **Docker**: Use the included Dockerfile
-
-## Contributing
+## 📝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Data Source
+## 🤝 Support
 
-The FIR data is sourced from official police records of Jalna District, Maharashtra, India. All data has been anonymized and processed for analytical purposes.
+For support and questions:
+- Create an issue in the GitHub repository
+- Contact the development team
+
+## 🎉 Acknowledgments
+
+- Built for Jalna Police Department
+- Data visualization powered by Recharts
+- UI components from shadcn/ui
+- Maps integration with Leaflet
+
+---
+
+**Built with ❤️ for better law enforcement and public safety**
