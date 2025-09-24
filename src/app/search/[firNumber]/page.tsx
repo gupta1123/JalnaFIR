@@ -10,21 +10,15 @@ import { Label } from '@/components/ui/label';
 import Sidebar from '@/components/Sidebar';
 import { 
   ArrowLeftIcon,
-  MapPinIcon,
-  CalendarIcon,
-  ClockIcon,
   UserIcon,
   TruckIcon,
   DocumentTextIcon,
   ExclamationTriangleIcon,
   ShieldCheckIcon,
-  PhoneIcon,
-  IdentificationIcon,
   MapIcon,
   BookOpenIcon,
   TagIcon
 } from '@heroicons/react/24/outline';
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 interface CaseDetailPageProps {
@@ -35,7 +29,6 @@ interface CaseDetailPageProps {
 
 export default function CaseDetailPage({ params }: CaseDetailPageProps) {
   const resolvedParams = use(params);
-  const [firData, setFirData] = useState<FIRRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [caseRecord, setCaseRecord] = useState<FIRRecord | null>(null);
 
@@ -44,7 +37,6 @@ export default function CaseDetailPage({ params }: CaseDetailPageProps) {
       setLoading(true);
       try {
         const data = await loadFIRData();
-        setFirData(data);
         
         // Find the specific case
         const decodedFirNumber = decodeURIComponent(resolvedParams.firNumber);

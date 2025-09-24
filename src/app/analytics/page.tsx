@@ -8,8 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import Sidebar from '@/components/Sidebar';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  LineChart, Line, AreaChart, Area, PieChart, Pie, Cell, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
-  RadialBarChart, RadialBar
+  AreaChart, Area, PieChart, Pie, Cell
 } from 'recharts';
 
 export default function AnalyticsPage() {
@@ -219,7 +218,6 @@ export default function AnalyticsPage() {
                             cx="50%"
                             cy="50%"
                             labelLine={false}
-                            label={({ range, percent }: any) => `${range} ${(percent * 100).toFixed(0)}%`}
                             outerRadius={80}
                             fill="#8884d8"
                             dataKey="count"

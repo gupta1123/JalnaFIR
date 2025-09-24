@@ -4,9 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { FIRRecord } from '@/types/fir';
 import { loadFIRData } from '@/lib/data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import Sidebar from '@/components/Sidebar';
 import { 
@@ -18,7 +16,6 @@ import {
   ExclamationTriangleIcon,
   TruckIcon
 } from '@heroicons/react/24/outline';
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 interface SearchFilters {

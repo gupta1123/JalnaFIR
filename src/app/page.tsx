@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FIRRecord, DashboardStats } from '@/types/fir';
-import { loadFIRData, calculateDashboardStats, getUniquePoliceStations, getUniqueKeywords, filterFIRData } from '@/lib/data';
+import { loadFIRData, calculateDashboardStats, filterFIRData } from '@/lib/data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
